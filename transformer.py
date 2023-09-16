@@ -208,8 +208,8 @@ class Vision_Transformer(nn.Module):
         super().__init__()
         vit_config.activation = 'gelu'
         self.num_patches = (vit_config.img_size * vit_config.img_size) // (vit_config.patch_size**2)
-        self.class_embedding = nn.Parameter(data=torch.randn(1, 1, vit_config.embed_size),                                                        requires_grad=True)
-        self.position_embedding =  nn.Parameter(data=torch.randn(1, self.num_patches + 1,                                                          vit_config.embed_size), requires_grad=True)
+        self.class_embedding = nn.Parameter(data=torch.randn(1, 1, vit_config.embed_size),requires_grad=True)
+        self.position_embedding =  nn.Parameter(data=torch.randn(1, self.num_patches + 1,vit_config.embed_size), requires_grad=True)
         
         self.vit_transformer = nn.ModuleDict({
             'embedding_dropout': nn.Dropout(p=vit_config.embedding_dropout),
